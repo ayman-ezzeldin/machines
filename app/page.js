@@ -1,26 +1,16 @@
-import Navbar from "@/components/Navbar";
 import { getServerSession } from "next-auth";
+import SignOutPage from "./auth/signout/page";
+import { authOptions } from "@/lib/nextAuth";
 
 export default async function Home() {
-  const session = await getServerSession();
-
+  const session = await getServerSession(authOptions);
   return (
-    <div className="text-teal-600 text-3xl text-center my-5">
-      <h1>Hello, I&apos;m here</h1>
-      <Navbar session={session} />
-      {session ? (
-        <div>
-          <p>Welcome, {session.user.name}!</p>
-          <p>Email: {session.user.email}</p>
-          <img
-            src={session.user.image}
-            alt="User Image"
-            className="rounded-full w-24 h-24 mx-auto"
-          />
-        </div>
-      ) : (
-        <p>Not signed in</p>
-      )}
+    <div className="flex flex-col gap-4 items-center justify-center h-screen w-full">
+      Go to <a className=" cursor-pointer rounded-xl bg-gray-800 text-white p-3" href="/auth/signin">Sign In</a> page to authenticate.
+      <br />
+      Go to <a className=" cursor-pointer rounded-xl bg-gray-800 text-white p-3" href="/profile">Profile</a> page to see your profile.
+      <br />
+      {session?.user && <SignOutPage /> }
+      
     </div>
-  );
-}
+  )}

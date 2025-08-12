@@ -24,6 +24,7 @@ export async function POST(req) {
       name: name ?? null,
       email,
       password: hash,
+      role: "user", 
       createdAt: new Date(),
     });
 

@@ -52,7 +52,7 @@ export default function SignInPage() {
 
         <button
           onClick={handleGoogle}
-          className="w-full mb-4 flex items-center justify-center gap-2 border rounded-md py-2 text-sm"
+          className="w-full mb-4 flex items-center justify-center gap-2 cursor-pointer border rounded-md py-2 text-sm"
         >
           <svg className="w-5 h-5 cursor-pointer" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M44 20H24v8h11.9C34.6 33 30 36 24 36c-7 0-12.7-5.7-12.7-12.7S17 10.6 24 10.6c3.1 0 5.9 1 8.1 2.8l5.7-5.7C35 4.4 29.8 2 24 2 12.4 2 3 11.4 3 23s9.4 21 21 21 21-9.4 21-21c0-1.4-.1-2.8-.3-4z" fill="currentColor"/>

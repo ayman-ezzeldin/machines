@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/nextAuth";
 import SignOut from "@/components/SignOut";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -22,32 +23,32 @@ export default async function Home() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center mb-6">
             {!session?.user && (
-              <a
+              <Link
                 href="/auth/signin"
                 className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow transition"
               >
                 Sign In
-              </a>
+              </Link>
             )}
-            <a
+            <Link
               href="/machines"
               className="bg-white border cursor-pointer border-blue-600 text-blue-700 font-bold py-2 px-6 rounded-lg shadow hover:bg-blue-50 transition"
             >
               View Machines
-            </a>
-            <a
+            </Link>
+            <Link
               href="/tasks"
               className="bg-white border cursor-pointer border-blue-600 text-blue-700 font-bold py-2 px-6 rounded-lg shadow hover:bg-blue-50 transition"
             >
               View Tasks
-            </a>
+            </Link>
             {session?.user && (
-              <a
+              <Link
                 href="/profile"
               className="bg-white border cursor-pointer border-blue-600 text-blue-700 font-bold py-2 px-6 rounded-lg shadow hover:bg-blue-50 transition"
               >
                 Profile
-              </a>
+              </Link>
             )}
           </div>
           {session?.user && <SignOut />}
